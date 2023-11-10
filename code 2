@@ -1,0 +1,34 @@
+public class MaxValueFinder {
+
+    public static <T extends Comparable<T>> T findMax(T[] array) {
+        if (array == null || array.length == 0) {
+            return null;
+        }
+
+        T max = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i].compareTo(max) > 0) {
+                max = array[i];
+            }
+        }
+
+        return max;
+    }
+
+    public static void main(String[] args) {
+        // Example with integers
+        Integer[] intArray = {3, 8, 1, 6, 4, 2};
+        Integer maxInt = findMax(intArray);
+        System.out.println("Maximum Integer: " + maxInt);
+
+        // Example with doubles
+        Double[] doubleArray = {5.5, 2.2, 9.8, 1.7, 4.3};
+        Double maxDouble = findMax(doubleArray);
+        System.out.println("Maximum Double: " + maxDouble);
+
+        // Example with strings
+        String[] stringArray = {"apple", "orange", "banana", "grape", "kiwi"};
+        String maxString = findMax(stringArray);
+        System.out.println("Maximum String: " + maxString);
+    }
+}
